@@ -32,7 +32,7 @@ export class PokemonsListComponent implements OnInit {
     private communicatorService: CommunicatorService,
     private route: ActivatedRoute,
     private _location: Location,
-    private catchService: CatchService,
+    public catchService: CatchService,
     private loadingService: LoadingService,
     private router: Router,
   ) { }

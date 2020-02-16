@@ -10,7 +10,7 @@ export class AppComponent{
   title = 'pokemons';
 
   constructor(
-    private loadingService: LoadingService,
+    public loadingService: LoadingService,
   ){}
   
 }
