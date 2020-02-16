@@ -1,0 +1,26 @@
+<mat-toolbar-row>
+    <button mat-button (click)="goBack()"><mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon></button>
+</mat-toolbar-row>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{pokemon.name}}</mat-card-title>
+        <span class="spacer"></span>
+        <div >
+            <button class="button" mat-raised-button color="primary" *ngIf="!catchService.isCatched(pokemon.name)" mat-button (click)="catch(pokemon)">Catch</button>
+            <button class="button" mat-raised-button color="accent" *ngIf="catchService.isCatched(pokemon.name)" mat-button (click)="release(pokemon)">Release</button>
+        </div>
+    </mat-card-header>
+    <img mat-card-image src="{{pokemon.sprites.front_default}}">
+    <mat-card-content>
+        <mat-list role="list">
+            <mat-list-item role="listitem">Weight: {{pokemon.weight}}</mat-list-item>
+            <mat-list-item role="listitem">Height: {{pokemon.height}}</mat-list-item>
+            <mat-list-item role="listitem">Abilities: 
+                <span *ngFor="let ability of pokemon.abilities">
+                    <span *ngIf="ability.is_hidden==false">&nbsp;{{ability.ability.name}}</span>
+                </span>
+            </mat-list-item>
+          </mat-list>
+    </mat-card-content>
+</mat-card>

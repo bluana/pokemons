@@ -1,0 +1,19 @@
+mat-card {
+    width: calc(100% - 70px);
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;    
+}
+
+mat-form-field{
+    text-align: center;
+    width: 20%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.catched {
+    border: 1px solid crimson;
+}

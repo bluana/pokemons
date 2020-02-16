@@ -1,0 +1,16 @@
+<mat-toolbar-row>
+    <button mat-button (click)="goBack()"><mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon></button>
+    <span class="spacer"></span>
+    <mat-form-field >
+        <mat-label >Search {{type.name}} pokemons</mat-label>
+        <input matInput [(ngModel)]="searchValue" (input)="filterPokemon()">
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-checkbox [(ngModel)]="caught" (change)="filterPokemon()">Catched</mat-checkbox>
+</mat-toolbar-row>
+
+<mat-grid-list cols="4" gutterSize="10px" rowHeight="4:1">
+    <mat-grid-tile *ngFor="let pokemon of filteredPokemons">
+        <mat-card [ngClass]="{'catched': catchService.isCatched(pokemon.name)}" (click)="selectPokemon(pokemon)">{{pokemon.name}}</mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
